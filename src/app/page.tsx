@@ -11,7 +11,13 @@ function getTodos() {
 async function toggleTodo(id: string, complete:boolean) {
   "use server"
 
-  await prisma.todo.update({ where: { id }, data: { complete} })
+  await prisma.todo.update({ where: { id }, data: { complete }})
+}
+
+async function deleteTodo(id: string) {
+  "use server"
+
+  await prisma.todo.delete( { where: { id }})
 }
 
 //displays todos (home page layout)
@@ -33,8 +39,11 @@ export default async function home() {
       </header>
       <ul className="pl-4">
         {todos.map(todo =>(
-          <TodoItem key={todo.id} {...todo} toggleTodo={toggleTodo} />
+          <span>
+            <TodoItem key={todo.id} {...todo} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
+          </span>
         ))}
+        
       </ul>
     </>
   )
