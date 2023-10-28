@@ -5,9 +5,8 @@ import { TodosProps } from "@/types/Todo"
 import { useEffect, useState } from "react"
 import { TodoItem } from "./TodoItem"
 import { CreateTodoItem } from './CreateTodoItem'
-import { stringify } from 'querystring'
-
-
+import { TodoDto } from '@/types/TodoDto'
+import BaseReponse from '@/types/BaseReponse'
 
 export function Todos({ deleteTodo, toggleTodo, createTodo }: TodosProps) {
 	const [todos, setTodos] = useState<Todo[]>([])
@@ -47,33 +46,24 @@ export function Todos({ deleteTodo, toggleTodo, createTodo }: TodosProps) {
 		})
 	}
 
-	function create(e: any, id: number) {
-		const form = e.target;
-		const formData = new FormData(form);
-		const formJson = Object.fromEntries(formData.entries());
-		//const newTodoTitle = stringify(formJson.todoId)
-		const newTodo: Todo = {
-			id: 0,
-			title: formJson.todoId,
+	function create(title: string) {
+		const newTodo: TodoDto = {
+			title: title,
 			complete: false,
-			createdAt: new Date(),
-			updatedAt: new Date()
 		}
-		console.log(formJson)
-		fetch(`/api/todocreate/`,{
+
+		fetch(`/api/todocreate/`, {
 			method: 'POST',
 			headers: {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json'
-			  },
-			body: JSON.stringify(newTodo),
-			// body: {
-			// 	id:formJson.id
-			// }
+			},
+			body: JSON.stringify(newTodo)
 		})
 		.then((res) => res.json())
-		.then((data) => {
-			setTodos(data.data)
+		.then((data: BaseReponse<Todo[]>) => {
+			console.log(data.body)
+			setTodos(data.body)
 			setLoading(false)
 		})
 	}

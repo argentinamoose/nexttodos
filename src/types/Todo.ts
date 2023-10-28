@@ -1,6 +1,5 @@
 import { Todo } from '@prisma/client'
-
-
+import { TodoDto } from './TodoDto'
 
 export interface TodoProps {
 	todo: Todo
@@ -11,9 +10,9 @@ export interface TodoProps {
 export interface TodosProps {
 	toggleTodo: (id: number, complete: boolean) => void
 	deleteTodo: (id: number) => void
-	createTodo: (data: FormData) => void
+	createTodo: (data: TodoDto) => void
 }
 
 export interface TodoNewProps {
-	createTodo: (data: FormData) => void
+	createTodo: (title: string) => void
 }

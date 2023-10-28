@@ -1,9 +1,6 @@
 import { Todos } from "@/components/Todos"
 import Link from "next/link"
 import { deleteTodo, toggleTodo, createTodo } from "./todo"
-import { NewTodo } from "@/components/NewTodo"
-
-
 
 //displays todos (home page layout)
 export default async function home() {

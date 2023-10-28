@@ -1,7 +1,6 @@
 import { prisma } from "@/db"
+import { TodoDto } from "@/types/TodoDto"
 import { Todo } from "@prisma/client"
-
-
 
 //grabs todos from database
 export async function getTodos() {
@@ -24,13 +23,13 @@ export async function deleteTodo(id: number) {
 	return await prisma.todo.delete({ where: { id } })
 }
 
-export async function createTodo(data: Todo) {
+export async function createTodo(data: TodoDto) {
 	"use server"
 
-	const title = data.get("title")?.valueOf()
-	if (typeof title !== "string" || title.length === 0) {
-	  throw new Error("Invalid Title")
-	}
-
-	return await prisma.todo.create({ data: { title, complete: false } })
+	return await prisma.todo.create({
+		data: {
+			complete: data.complete,
+			title: data.title
+		} 
+	})
 }
