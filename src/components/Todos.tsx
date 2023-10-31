@@ -73,8 +73,8 @@ export function Todos({ deleteTodo, toggleTodo, createTodo }: TodosProps) {
 
 	//updates front end to match back end
 	return (
-		<>
-			<ul className="pl-4">
+		<div>
+			<ul className="pl-0">
 				{todos.map((todo: Todo) => (
 					<span key={todo.id}>
 						<TodoItem todo={todo} toggleTodo={toggleTodo} deleteTodo={remove} />
@@ -84,6 +84,6 @@ export function Todos({ deleteTodo, toggleTodo, createTodo }: TodosProps) {
 			<div>
 				<CreateTodoItem createTodo={create}></CreateTodoItem>
 			</div>
-		</>
+		</div>
 	)
 }
