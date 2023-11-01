@@ -24,7 +24,6 @@ In order to run the application follow the steps below
 
 Here is the app in action
 
-<p float="left">
-    <img src='https://github.com/argentinamoose/nexttodos/tree/master/readme_extra/NextTodos.gif' width="240" height="360">
-    <img src='https://github.com/argentinamoose/nexttodos/tree/master/readme_extra/NextTodos.jpg' width="300" height="360">
-</p>
+
+![Gif example](https://github.com/argentinamoose/nexttodos/blob/master/readme_extras/NextTodos.gif)
+<img src='https://github.com/argentinamoose/nexttodos/blob/master/readme_extras/NextTodos.JPG' width="463" height="360">
