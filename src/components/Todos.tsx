@@ -69,7 +69,7 @@ export function Todos({ deleteTodo, toggleTodo, createTodo }: TodosProps) {
 	}
 
 	if (isLoading) return <p>Loading...</p>
-	if (!todos || todos.length < 1) return <p>No todo data</p>
+	//if (!todos || todos.length < 1) return <p>No todo data</p>
 
 	//updates front end to match back end
 	return (

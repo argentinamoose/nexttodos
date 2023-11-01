@@ -14,7 +14,7 @@ export function CreateTodoItem({ createTodo }: TodoNewProps) {
 	}
 	
     return (
-        <div className="relative flex w-full flex-wrap items-stretch mb-3 justify-between">
+        <div className="relative flex w-full flex-wrap items-stretch mb-3 justify-between gap-2">
 			<label>
 				<input 
 					type="text"
@@ -29,6 +29,7 @@ export function CreateTodoItem({ createTodo }: TodoNewProps) {
 					<path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
 				</svg>
 			</button>
+			{/* <button onClick={() => create()} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-blue-200 font-large rounded-lg text-lg px-2.5 py-1 focus:outline-none dark:focus:ring-blue-800 font-4x1">+</button> */}
 		</div>
     )
 }
